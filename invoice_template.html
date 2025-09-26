@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счет-фактура</title>
+    <style>
+        body {
+            font-family: 'DejaVu Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .invoice-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .invoice-id {
+            font-size: 18px;
+            color: #666;
+        }
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .customer-info, .invoice-info {
+            flex: 1;
+        }
+        .info-section h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .info-section p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .amount-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .amount {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .description {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="invoice-title">СЧЕТ-ФАКТУРА</div>
+            <div class="invoice-id">№ {{invoice_id}}</div>
+        </div>
+        
+        <div class="details">
+            <div class="customer-info">
+                <div class="info-section">
+                    <h3>Клиент:</h3>
+                    <p><strong>{{customer_name}}</strong></p>
+                </div>
+            </div>
+            
+            <div class="invoice-info">
+                <div class="info-section">
+                    <h3>Информация о счете:</h3>
+                    <p><strong>Дата:</strong> {{date}}</p>
+                    <p><strong>Номер:</strong> {{invoice_id}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="amount-section">
+            <div class="amount">{{amount}} ₽</div>
+        </div>
+        
+        <div class="description">
+            <h3>Описание услуг:</h3>
+            <p>{{description}}</p>
+        </div>
+        
+        <div class="footer">
+            <p>Спасибо за ваш заказ!</p>
+            <p>Дата создания: {{date}}</p>
+        </div>
+    </div>
+</body>
+</html>
